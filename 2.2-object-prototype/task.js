@@ -1,19 +1,13 @@
 "use strict"
 //Задача 1
-function isPalindrome(string) {
-    this.string = string.toLowerCase().replace(/\s+/g, '').split('');
-    let originalString = this.string.join('');
-    let reversedString = this.string.reverse().join('');
-    if (originalString !== reversedString) {
-        return false;
-    } else {
-        return true;
-    }
+String.prototype.isPalindrome = function isPalindrome() {
+    const str = this;
+    const string = this.toLowerCase().replace(/\s+/g, '').split('');
+    const originalString = string.join('');
+    const reversedString = string.reverse().join('');
+    return originalString === reversedString;
 }
 
-String.prototype.isPalindrome = function() {
-    return this.string;
-}
 
 //Задача 2
 function getAverageMark(marks) {
@@ -24,16 +18,16 @@ function getAverageMark(marks) {
     for (let i = 0; i < marks.length; i++) {
         marksSum += marks[i];
     }
-    let average = marksSum / marks.length;
-    let roundedAverage = Math.round(average);
+    const average = marksSum / marks.length;
+    const roundedAverage = Math.round(average);
     return roundedAverage;
 }
 
 function checkBirthday(birthday) {
-    let now = Date.now();
-    let birthdayDate = new Date(birthday);
-    birthday = +birthdayDate;
-    let diff = now - birthday;
-    let age = diff / (24 * 60 * 60 * 1000 * 365.25);
+    const now = Date.now();
+    const parsedBirthday = new Date(birthday).getTime();
+    const dateOfBirth = +parsedBirthday;
+    const diff = now - dateOfBirth;
+    const age = diff / (24 * 60 * 60 * 1000 * 365.25);
     return (age >= 18);
 }
