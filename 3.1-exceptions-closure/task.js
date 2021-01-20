@@ -35,16 +35,15 @@ class Triangle {
     }
 
     getArea() {
-        let triangleSquare = Math.sqrt((this.getPerimeter() / 2) * ((this.getPerimeter() / 2) - this.a) * ((this.getPerimeter() / 2) - this.b) * ((this.getPerimeter() / 2) - this.c));
-        return triangleSquare.toFixed(3);
+        let area = Math.sqrt((this.getPerimeter() / 2) * ((this.getPerimeter() / 2) - this.a) * ((this.getPerimeter() / 2) - this.b) * ((this.getPerimeter() / 2) - this.c));
+        return area.toFixed(3);
     }
 }
 
 function getTriangle(a, b, c) {
     try {
-        const triangle = new Triangle(a, b, c);
-        return triangle;
+        return new Triangle(a, b, c);
     } catch (e) {
-        //return triangle.getPerimeter(a, b, c), triangle.getArea(a, b, c);
+        // return triangle.getPerimeter(), triangle.getArea();
     }
 }
